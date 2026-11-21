@@ -1,0 +1,74 @@
+# Web application local state
+webapp/backend/.env
+webapp/backend/.venv/
+webapp/backend/.venv-wsl/
+**/.pytest_cache/
+**/__pycache__/
+webapp/backend/tests/*.db*
+webapp/backend/data/
+webapp/backend/__pycache__/
+webapp/backend/app/__pycache__/
+webapp/backend/tests/__pycache__/
+webapp/frontend/node_modules/
+webapp/frontend/dist/
+webapp/frontend/.vite/
+
+# Credentials and local configuration（密钥与本地配置）
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Python environments, installer leftovers and caches（环境、安装残留与缓存）
+.venv*/
+venv/
+pip-*/
+*.py[cod]
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Runtime data and build output（运行数据与构建产物）
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.log
+*.tsbuildinfo
+node_modules/
+dist/
+.vite/
+playwright-report/
+test-results/
+
+# Training data, weights and experiment output（训练数据、权重与实验输出）
+/data/
+/datasets/
+/models/
+/experiments/
+/outputs/
+checkpoint-*/
+swanlog/
+wandb/
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.gguf
+*.bin
+
+# Local editor and temporary files（本地编辑器与临时文件）
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+.dsh_write_test
+*.tmp
+*.bak

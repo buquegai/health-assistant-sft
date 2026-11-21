@@ -1,0 +1,18 @@
+# Add future fine-tuned models here. Keep API keys in backend environment variables.
+default_model_id: health-assistant
+models:
+  - id: health-assistant
+    name: 健康助手（Qwen3-1.7B 微调版）
+    base_url_env: MODEL_BASE_URL
+    model_name_env: MODEL_NAME
+    api_key_env: MODEL_API_KEY
+    inference_config: ../../configs/psychology_infer.yaml
+  - id: qwen3-base
+    name: Qwen3-1.7B 原始模型（未微调）
+    base_url_env: MODEL_BASE_URL
+    base_url: http://127.0.0.1:8000/v1
+    model_name_env: BASE_MODEL_NAME
+    model_name: qwen3-1.7b-base
+    api_key_env: MODEL_API_KEY
+    # Same tokenizer and system prompt; serve_model.py disables LoRA for this ID.
+    inference_config: ../../configs/psychology_infer.yaml

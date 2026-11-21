@@ -1,0 +1,47 @@
+# 本地基础模型 + 四比特量化 + LoRA。
+model_name_or_path: /home/woei/models/Qwen3-1.7B
+quantization_method: bnb
+quantization_bit: 4
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+lora_rank: 8
+lora_alpha: 16
+
+# 显式指定已经按问题分组划分的数据，不再使用 val_size 随机划分。
+dataset_dir: /home/woei/datasets/psychology-sft-v1
+dataset: psychology_train
+eval_dataset: psychology_val
+template: qwen3_nothink
+enable_thinking: false
+cutoff_len: 1536
+preprocessing_num_workers: 2
+dataloader_num_workers: 0
+packing: false
+train_on_prompt: false
+
+# 首轮正式实验先训练一轮，再根据验证结果决定是否继续调整。
+num_train_epochs: 1.0
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: true
+learning_rate: 1.0e-4
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+optim: adamw_torch
+bf16: true
+flash_attn: sdpa
+seed: 42
+data_seed: 42
+
+# 每轮评估并保存；仅计算验证损失，不在训练阶段生成长回答。
+eval_strategy: epoch
+prediction_loss_only: true
+output_dir: /home/woei/experiments/health-sft/train_01
+logging_steps: 10
+save_strategy: epoch
+save_total_limit: 2
+plot_loss: true
+report_to: none

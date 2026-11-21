@@ -1,0 +1,44 @@
+# 本地基础模型；bnb 是 bitsandbytes 量化方法的配置名称。
+model_name_or_path: /home/woei/models/Qwen3-1.7B
+quantization_method: bnb
+quantization_bit: 4
+
+# 监督微调，只更新 LoRA 适配器。
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+lora_rank: 8
+lora_alpha: 16
+
+# 128 条试跑样本来自训练集；不使用验证集和测试集。
+dataset_dir: /home/woei/datasets/psychology-sft-v1
+dataset: psychology_smoke
+template: qwen3_nothink
+enable_thinking: false
+cutoff_len: 1536
+preprocessing_num_workers: 2
+dataloader_num_workers: 0
+packing: false
+train_on_prompt: false
+
+# 五次参数更新，仅验证训练管线和显存，不评价微调效果。
+max_steps: 5
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: true
+learning_rate: 1.0e-4
+optim: adamw_torch
+bf16: true
+flash_attn: sdpa
+seed: 42
+data_seed: 42
+
+# 再次试跑请换新目录。不要把此输出目录当作正式实验目录。
+output_dir: /home/woei/experiments/health-sft/smoke_01
+logging_steps: 1
+save_strategy: steps
+save_steps: 5
+save_total_limit: 1
+plot_loss: true
+report_to: none

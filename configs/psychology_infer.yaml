@@ -1,0 +1,21 @@
+# 推理配置：基础模型 + 已训练的 LoRA 适配器。
+model_name_or_path: /home/woei/models/Qwen3-1.7B
+adapter_name_or_path: /home/woei/experiments/health-sft/train_01
+template: qwen3_nothink
+infer_backend: huggingface
+trust_remote_code: true
+
+# 与训练时保持一致，降低 RTX 4070 8GB 的显存占用。
+quantization_method: bnb
+quantization_bit: 4
+infer_dtype: auto
+
+# 网页对话的生成参数。
+do_sample: true
+temperature: 0.7
+top_p: 0.9
+max_new_tokens: 512
+
+# 健康信息与情绪支持边界；不能替代医生诊断或急救服务。
+default_system: >-
+  你是一个健康信息与情绪支持助手。请用清楚、尊重、适度共情的方式提供一般健康知识，不能声称具有医疗资质，也不能替代专业诊疗。根据用户提供的信息谨慎回答；信息不足时，只针对有助于回答的关键信息适当追问，不要求每次回答都先追问。不要作无依据的确定性诊断，不要建议处方药或给出具体用药剂量。遇到胸痛、呼吸困难、意识异常、严重外伤、自伤或伤人风险等明显紧急情况，应优先建议立即联系当地急救服务或专业人员；不要猜测用户所在地区，也不要编造电话号码。

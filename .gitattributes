@@ -1,0 +1,13 @@
+# Normalize source files across Windows and WSL（统一 Windows 与 WSL 源码换行）
+* text=auto
+*.py text eol=lf
+*.ts text eol=lf
+*.vue text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.png binary

@@ -1,0 +1,77 @@
+[
+  {
+    "name": "认证页面",
+    "result": "PASS",
+    "detail": "登录和注册表单可加载"
+  },
+  {
+    "name": "后端模型目录与聊天选择器",
+    "result": "PASS",
+    "detail": "默认模型 health-assistant 已显示"
+  },
+  {
+    "name": "注册与受限路由",
+    "result": "PASS",
+    "detail": "注册后进入空白聊天页"
+  },
+  {
+    "name": "真实模型单轮流式回答",
+    "result": "PASS",
+    "detail": "257 个可见字符"
+  },
+  {
+    "name": "新会话保存模型选择",
+    "result": "PASS",
+    "detail": "模型 ID 已与会话记录一同持久化"
+  },
+  {
+    "name": "真实模型多轮上下文",
+    "result": "PASS",
+    "detail": "同一会话第二轮完成，后端只组装当前会话历史"
+  },
+  {
+    "name": "真实停止与许可回收",
+    "result": "PASS",
+    "detail": "部分回答已保存；停止后模型健康接口确认没有活动生成线程"
+  },
+  {
+    "name": "确认替换与重试",
+    "result": "PASS",
+    "detail": "重试复用原消息位置，没有重复插入用户问题"
+  },
+  {
+    "name": "刷新指定会话恢复",
+    "result": "PASS",
+    "detail": "路由及数据库消息均恢复"
+  },
+  {
+    "name": "手机回车换行",
+    "result": "PASS",
+    "detail": "390px 视口回车没有提交问题"
+  },
+  {
+    "name": "响应式页面无横向溢出",
+    "result": "PASS",
+    "detail": "320px, 390px, 768px, 1440px"
+  },
+  {
+    "name": "桌面 Enter 与输入法",
+    "result": "PASS",
+    "detail": "真实 Enter 已发送；isComposing=true 时不会提交"
+  },
+  {
+    "name": "A13 真实回答采集（不代表质量通过）",
+    "result": "PASS",
+    "detail": "四个独立会话已保存；质量判定见 A13 人工复核报告"
+  },
+  {
+    "name": "受控失败流与 Markdown 安全",
+    "result": "PASS",
+    "detail": "失败状态可重试；脚本、危险链接和远程图片均未执行或加载"
+  },
+  {
+    "name": "浏览器错误",
+    "result": "PASS",
+    "detail": "未出现未处理的页面异常"
+  }
+]
